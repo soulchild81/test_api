@@ -42,11 +42,11 @@ spring:
         url: https://srch-capi.lotteon.com/search/render/render.ecn?render=nqapi&platform=m&collection_id=6&u9=json&u10=1&mallId=1
       display:
         url: https://pbf.lotteon.com/csearch/v1/navigate/category/product
-#
-#
-#logging:
-#  level:
-#    study: TRACE
-#    org.hibernate:
-#      type:
-#        descriptor.sql: trace
+
+
+logging:
+  level:
+    study:
+    org.hibernate:
+      type:
+        descriptor.sql: trace
