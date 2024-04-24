@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EvaluationCommentRepository extends JpaRepository<ContentComment , Long> {
     @Modifying
-    @Query(nativeQuery = true, value = "DELETE FROM soulchild_content.CONTENT_COMMENT WHERE user_seq = :userSeq")
+    @Query(nativeQuery = true, value = "DELETE FROM soulchild_content.content_comment WHERE user_seq = :userSeq")
     public void removeCommentUser(@Param("userSeq") long userSeq);
 }

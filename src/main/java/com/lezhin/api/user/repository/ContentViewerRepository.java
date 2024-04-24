@@ -17,7 +17,7 @@ public interface ContentViewerRepository extends JpaRepository<ContentViewer, Lo
     public ContentViewer findContentViewerByViewerKey(ContentUserKey viewerKey);
 
     @Modifying
-    @Query(nativeQuery = true, value = "DELETE FROM soulchild_content.CONTENT_VIEWER WHERE user_seq = :userSeq")
+    @Query(nativeQuery = true, value = "DELETE FROM soulchild_content.content_viewer WHERE user_seq = :userSeq")
     public void removeViewerUser(@Param("userSeq") long userSeq);
 
 
