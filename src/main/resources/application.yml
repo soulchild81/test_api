@@ -43,6 +43,7 @@ spring:
       display:
         url: https://pbf.lotteon.com/csearch/v1/navigate/category/product
 
+
 logging:
   level:
     study:
