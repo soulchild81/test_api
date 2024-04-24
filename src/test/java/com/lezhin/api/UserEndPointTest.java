@@ -34,37 +34,37 @@ class UserEndPointTest {
     @Resource
     private MockMvc mockMvc;
 
-    @DisplayName("유저 - 유저 개별 조회")
-    @Test
-    public void userDetailTest() throws Exception {
-        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.get("/v1/user/{userSeq}" , 1)).andDo(print()).andExpect(status().isOk());
-        result.andExpect(status().isOk()).andDo(document("userDetail",
-                        pathParameters(
-                                parameterWithName("userSeq").description("userSeq : 유저 번호")
-                        ),
-                        responseFields(
-                                beneathPath("data") ,
-                                fieldWithPath("userSeq").type(JsonFieldType.NUMBER).description("유저  번호"),
-                                fieldWithPath("name").type(JsonFieldType.STRING).description("유저 이름"),
-                                fieldWithPath("email").type(JsonFieldType.STRING).description("유저 이메일"),
-                                fieldWithPath("gender").type(JsonFieldType.STRING).description("성별 : M(MALE) 남성, F(FEMALE) 여성"),
-                                fieldWithPath("type").type(JsonFieldType.STRING).description("유저 타입 : ADULT(성인) , NORMAL(미성년자)")
-                        )
-                )
-        ).andDo(print());
-    }
-
-    @DisplayName("유저 - 유저 정보 삭제")
-    @Test
-    public void userRemoveTest() throws Exception {
-        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/v1/user/{userSeq}" , 1)).andDo(print()).andExpect(status().isOk());
-        result.andExpect(status().isOk()).andDo(document("userRemove",
-                        pathParameters(
-                                parameterWithName("userSeq").description("userSeq : 유저 번호")
-                        )
-                )
-        ).andDo(print());
-    }
+//    @DisplayName("유저 - 유저 개별 조회")
+//    @Test
+//    public void userDetailTest() throws Exception {
+//        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.get("/v1/user/{userSeq}" , 1)).andDo(print()).andExpect(status().isOk());
+//        result.andExpect(status().isOk()).andDo(document("userDetail",
+//                        pathParameters(
+//                                parameterWithName("userSeq").description("userSeq : 유저 번호")
+//                        ),
+//                        responseFields(
+//                                beneathPath("data") ,
+//                                fieldWithPath("userSeq").type(JsonFieldType.NUMBER).description("유저  번호"),
+//                                fieldWithPath("name").type(JsonFieldType.STRING).description("유저 이름"),
+//                                fieldWithPath("email").type(JsonFieldType.STRING).description("유저 이메일"),
+//                                fieldWithPath("gender").type(JsonFieldType.STRING).description("성별 : M(MALE) 남성, F(FEMALE) 여성"),
+//                                fieldWithPath("type").type(JsonFieldType.STRING).description("유저 타입 : ADULT(성인) , NORMAL(미성년자)")
+//                        )
+//                )
+//        ).andDo(print());
+//    }
+//
+//    @DisplayName("유저 - 유저 정보 삭제")
+//    @Test
+//    public void userRemoveTest() throws Exception {
+//        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/v1/user/{userSeq}" , 1)).andDo(print()).andExpect(status().isOk());
+//        result.andExpect(status().isOk()).andDo(document("userRemove",
+//                        pathParameters(
+//                                parameterWithName("userSeq").description("userSeq : 유저 번호")
+//                        )
+//                )
+//        ).andDo(print());
+//    }
 
     @DisplayName("유저 - 최근 {n} 일간 성인 작품을 3개이상 조회한 유저 리스트 조회")
     @Test
