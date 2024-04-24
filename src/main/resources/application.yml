@@ -3,27 +3,26 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:~/lezhin;DB_CLOSE_ON_EXIT=FALSE
-    username: test
-    password: test
-    driverClassName: org.h2.Driver
+    url: jdbc:mariadb://soulchild-mariadb.c76q0uqkytst.ap-northeast-2.rds.amazonaws.com:3306/soulchild_content??characterEncoding=UTF-8&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: admin
+    password: 8824guss!
+    driverClassName: org.mariadb.jdbc.Driver
     hikari:
       connectionTimeout: 3000
       maximumPoolSize: 10
       poolName: HikariCP
       readOnly: false
       connectionTestQuery: SELECT 1
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        trace: false
-        web-allow-others: false
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+#      settings:
+#        trace: false
+#        web-allow-others: false
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
