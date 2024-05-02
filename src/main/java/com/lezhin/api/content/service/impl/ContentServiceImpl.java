@@ -12,6 +12,7 @@ import com.lezhin.entity.Content;
 import com.lezhin.entity.ContentViewer;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -26,7 +27,10 @@ public class ContentServiceImpl implements ContentService {
     private final EvaluationDisLikeRepository evaluationDisLikeRepository;
     private final UserService userService;
 
+
     @Override
+    //@Cacheable(cacheNames = "getContent", key = "#p0" , sync = true, cacheManager = "rcm")
+    @Cacheable(cacheNames = "Content", key = "'getContent-' + #contentSeq" , sync = true, cacheManager = "rcm")
     public ContentResponse getContent(long contentSeq){
         Content content = contentRepository.findByContentSeq(contentSeq);
         content.setLikeCount(evaluationLikeRepository.findContentLikeCount(contentSeq).getLikeCount());

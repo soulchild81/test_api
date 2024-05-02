@@ -29,7 +29,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - 8080:9201
    # environment:
       #SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/board_db
       #SPRING_DATASOURCE_USERNAME: board
@@ -42,5 +42,4 @@ services:
 # 외부에서 도커 컨테이너로 접근 하기 위한 커맨드
 #docker exec -it postgres bash
 #psql -U <POSTGRES_USER> -d <POSTGRES_DB>
-
 #docker exec -it redis redis-cli

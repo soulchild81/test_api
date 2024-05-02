@@ -12,6 +12,14 @@ java {
     sourceCompatibility = '17'
 }
 
+compileJava {	options.compilerArgs << '-parameters'}
+
+//tasks.withType(JavaCompile) {
+//    configure(options) {
+//        options.compilerArgs << '-parameters'
+//    }
+//}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -47,6 +55,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.2.Final'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     compileOnly 'org.projectlombok:lombok'
     // runtimeOnly 'com.h2database:h2' h2
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' // MariaDB
@@ -63,6 +72,8 @@ dependencies {
     implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.2'
     implementation 'org.springframework.boot:spring-boot-starter-undertow'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
 
 }
 
