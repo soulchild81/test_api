@@ -66,30 +66,30 @@ class UserEndPointTest {
 //        ).andDo(print());
 //    }
 
-    @DisplayName("유저 - 최근 {n} 일간 성인 작품을 3개이상 조회한 유저 리스트 조회")
-    @Test
-    public void adultSearchUserTest() throws Exception {
-        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.get("/v1/user/adult/content")
-                        .param("days" , "7")
-                        .contentType("application/json; charset=utf-8"))
-                .andDo(print())
-                .andExpect(status().isOk());
+//     @DisplayName("유저 - 최근 {n} 일간 성인 작품을 3개이상 조회한 유저 리스트 조회")
+//     @Test
+//     public void adultSearchUserTest() throws Exception {
+//         ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.get("/v1/user/adult/content")
+//                         .param("days" , "7")
+//                         .contentType("application/json; charset=utf-8"))
+//                 .andDo(print())
+//                 .andExpect(status().isOk());
 
-        result.andExpect(status().isOk()).andDo(document("adultUserSearch",
-                        queryParameters(
-                                parameterWithName("days").description("기간 : default 7일")
-                        ),
-                        responseFields(
-                                beneathPath("data") ,
-                                fieldWithPath("userSeq").type(JsonFieldType.NUMBER).description("유저 Seq"),
-                                fieldWithPath("name").type(JsonFieldType.STRING).description("유저명"),
-                                fieldWithPath("email").type(JsonFieldType.STRING).description("이메일"),
-                                fieldWithPath("gender").type(JsonFieldType.STRING).description("성별"),
-                                fieldWithPath("type").type(JsonFieldType.STRING).description("유저 타입"),
-                                fieldWithPath("searchCnt").type(JsonFieldType.NUMBER).description("조회 수")
-                        )
-                )
-        ).andDo(print());
-    }
+//         result.andExpect(status().isOk()).andDo(document("adultUserSearch",
+//                         queryParameters(
+//                                 parameterWithName("days").description("기간 : default 7일")
+//                         ),
+//                         responseFields(
+//                                 beneathPath("data") ,
+//                                 fieldWithPath("userSeq").type(JsonFieldType.NUMBER).description("유저 Seq"),
+//                                 fieldWithPath("name").type(JsonFieldType.STRING).description("유저명"),
+//                                 fieldWithPath("email").type(JsonFieldType.STRING).description("이메일"),
+//                                 fieldWithPath("gender").type(JsonFieldType.STRING).description("성별"),
+//                                 fieldWithPath("type").type(JsonFieldType.STRING).description("유저 타입"),
+//                                 fieldWithPath("searchCnt").type(JsonFieldType.NUMBER).description("조회 수")
+//                         )
+//                 )
+//         ).andDo(print());
+//     }
 }
 

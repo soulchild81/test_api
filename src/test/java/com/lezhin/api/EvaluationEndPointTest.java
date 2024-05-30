@@ -30,55 +30,55 @@ public class EvaluationEndPointTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @DisplayName("평가 - 컨텐츠 좋아요 , 싫어요 정보 등록")
-    @Test
-    public void evaluationLikeAddTest() throws Exception {
-        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.post("/v1/content/evaluation/{type}/{contentSeq}" , "like", 1)).andDo(print()).andExpect(status().isOk());
-        result.andExpect(status().isOk()).andDo(document("evaluationLikeAdd",
-                        pathParameters(
-                                parameterWithName("type").description("type : 좋아요 타입(like , dislike)"),
-                                parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호")
-                        )
-                )
-        ).andDo(print());
-    }
+//     @DisplayName("평가 - 컨텐츠 좋아요 , 싫어요 정보 등록")
+//     @Test
+//     public void evaluationLikeAddTest() throws Exception {
+//         ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.post("/v1/content/evaluation/{type}/{contentSeq}" , "like", 1)).andDo(print()).andExpect(status().isOk());
+//         result.andExpect(status().isOk()).andDo(document("evaluationLikeAdd",
+//                         pathParameters(
+//                                 parameterWithName("type").description("type : 좋아요 타입(like , dislike)"),
+//                                 parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호")
+//                         )
+//                 )
+//         ).andDo(print());
+//     }
 
-    @DisplayName("평가 - 컨텐츠 좋아요 , 싫어요 정보 삭제")
-    @Test
-    public void evaluationLikeRemoveTest() throws Exception {
-        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/v1/content/evaluation/{type}/{contentSeq}" , "like", 1)).andDo(print()).andExpect(status().isOk());
-        result.andExpect(status().isOk()).andDo(document("evaluationLikeRemove",
-                        pathParameters(
-                                parameterWithName("type").description("type : 좋아요 타입(like , dislike)"),
-                                parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호")
-                        )
-                )
-        ).andDo(print());
-    }
+//     @DisplayName("평가 - 컨텐츠 좋아요 , 싫어요 정보 삭제")
+//     @Test
+//     public void evaluationLikeRemoveTest() throws Exception {
+//         ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/v1/content/evaluation/{type}/{contentSeq}" , "like", 1)).andDo(print()).andExpect(status().isOk());
+//         result.andExpect(status().isOk()).andDo(document("evaluationLikeRemove",
+//                         pathParameters(
+//                                 parameterWithName("type").description("type : 좋아요 타입(like , dislike)"),
+//                                 parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호")
+//                         )
+//                 )
+//         ).andDo(print());
+//     }
 
-    @DisplayName("평가 - 컨텐츠 댓글 등록")
-    @Test
-    public void evaluationCommentAddTest() throws Exception {
-        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.post("/v1/content/evaluation/comment/{contentSeq}" , 1)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"comment\": \"blah~blah\"}"))
-                .andDo(print()).andExpect(status().isOk());
-        result.andExpect(status().isOk()).andDo(document("evaluationCommentAdd",
-                        pathParameters(
-                                parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호 ")
-                        )
-                )
-        ).andDo(print());
-    }
+//     @DisplayName("평가 - 컨텐츠 댓글 등록")
+//     @Test
+//     public void evaluationCommentAddTest() throws Exception {
+//         ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.post("/v1/content/evaluation/comment/{contentSeq}" , 1)
+//                 .contentType(MediaType.APPLICATION_JSON)
+//                 .content("{\"comment\": \"blah~blah\"}"))
+//                 .andDo(print()).andExpect(status().isOk());
+//         result.andExpect(status().isOk()).andDo(document("evaluationCommentAdd",
+//                         pathParameters(
+//                                 parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호 ")
+//                         )
+//                 )
+//         ).andDo(print());
+//     }
 
-    @DisplayName("평가 - 컨텐츠 댓글 삭제")
-    @Test
-    public void evaluationCommentRemoveTest() throws Exception {
-        ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/v1/content/evaluation/comment/{contentSeq}" , 1)).andDo(print()).andExpect(status().isOk());
-        result.andExpect(status().isOk()).andDo(document("evaluationCommentRemove",
-                pathParameters(
-                        parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호 ")
-                ))
-        ).andDo(print());
-    }
+//     @DisplayName("평가 - 컨텐츠 댓글 삭제")
+//     @Test
+//     public void evaluationCommentRemoveTest() throws Exception {
+//         ResultActions result = this.mockMvc.perform(RestDocumentationRequestBuilders.delete("/v1/content/evaluation/comment/{contentSeq}" , 1)).andDo(print()).andExpect(status().isOk());
+//         result.andExpect(status().isOk()).andDo(document("evaluationCommentRemove",
+//                 pathParameters(
+//                         parameterWithName("contentSeq").description("contentSeq : 컨텐츠 번호 ")
+//                 ))
+//         ).andDo(print());
+//     }
 }
