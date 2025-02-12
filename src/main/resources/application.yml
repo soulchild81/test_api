@@ -5,24 +5,24 @@ spring:
   cache:
     type: redis
 
-  datasource:
-    url: jdbc:mariadb://soulchild-mariadb.c76q0uqkytst.ap-northeast-2.rds.amazonaws.com:3306/soulchild_content??characterEncoding=UTF-8&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: admin
-    password: 8824guss!
-    driverClassName: org.mariadb.jdbc.Driver
-    hikari:
-      connectionTimeout: 3000
-      maximumPoolSize: 10
-      poolName: HikariCP
-      readOnly: false
-      connectionTestQuery: SELECT 1
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console
-#      settings:
-#        trace: false
-#        web-allow-others: false
+#  datasource:
+#    url: jdbc:mariadb://soulchild-mariadb.c76q0uqkytst.ap-northeast-2.rds.amazonaws.com:3306/soulchild_content??characterEncoding=UTF-8&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: admin
+#    password: 8824guss!
+#    driverClassName: org.mariadb.jdbc.Driver
+#    hikari:
+#      connectionTimeout: 3000
+#      maximumPoolSize: 10
+#      poolName: HikariCP
+#      readOnly: false
+#      connectionTestQuery: SELECT 1
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
   jpa:
     hibernate:
       ddl-auto: update
@@ -45,6 +45,8 @@ spring:
         url: https://srch-capi.lotteon.com/search/render/render.ecn?render=nqapi&platform=m&collection_id=6&u9=json&u10=1&mallId=1
       display:
         url: https://pbf.lotteon.com/csearch/v1/navigate/category/product
+      public-data:
+        url: http://swopenAPI.seoul.go.kr/api/subway
   data:
     redis:
       host: localhost

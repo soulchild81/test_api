@@ -6,4 +6,7 @@ public class Constants {
     public static final String KIBANA_PORT = "5601";
     public static final int PAGE_LIMIT = 100;
     public static final int SIZE = 100;
+    public static final String PUBLIC_API_KEY = "5452795843736f75313131516967575a";
+
+
 }
